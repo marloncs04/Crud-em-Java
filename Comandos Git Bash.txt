@@ -31,7 +31,7 @@
 	git commit -m "<versao_de_controle>"
 	git commit -a -m "<versao_de_controle>" // Pula a parte anterior e add ao mesmo tempo
 
--- PARA VER ALTERAÇÕES ANTES DE DAR ADD NA STAGED, USE: --
+-- PARA VER ALTERAÃ‡Ã•ES ANTES DE DAR ADD NA STAGED, USE: --
 
 	git diff		// Em vermelho o que foi deletado, em verde o que foi add
 	git diff --staged 	// Caso ja tenha add no staged
@@ -45,4 +45,18 @@
 
 -- EDITAR O COMMIT MAIS RECENTE
 
-	
+	git commit --amend -m "<versao_edicao>"
+
+-- EXCLUIR ARQUIVO ENVIADO PARA STAGED SEM INTENCAO
+
+	git reset HEAD <nome.tipo>
+
+-- EXCLUIR ULTIMA VERSAO MODIFICADA ANTES DE ENVIAR PRO STAGED
+
+	git checkout -- <nome.tipo>
+
+-- EXCLUIR ARQUIVO DO REPOSITORIO
+
+	git rm <nome.tipo>
+
+--	
