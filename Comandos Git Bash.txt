@@ -20,10 +20,15 @@
 
 	git status
 
--- DEPOIS DE SALVAR UM ARQUIVO NO REPOSITORIO, ADICIONA-LO COM O COMANDO: --
+-- DEPOIS DE SALVAR OU MODIFICAR UM ARQUIVO NO REPOSITORIO, ADICIONA-LO COM O COMANDO: --
 
 	git add <nome&tipo>
 	git add *.<tipo> // Adiciona todos no formato selecionado
 	git add .        // Adiciona todos os arquivos 
 
---  
+-- DEPOIS COMITAR ELE
+
+	git commit -m "<versao_de_controle>"
+	git commit -a -m "<versao_de_controle>" // Pula a parte anterior e add ao mesmo tempo
+
+--
