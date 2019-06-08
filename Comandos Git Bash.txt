@@ -1,0 +1,27 @@
+-- COMANDOS UTEIS GIT BASH --
+
+-- ENTRAR EM UMA PASTA DESEJADA -- 
+
+	cd <nome da pasta>
+
+-- SAIR DE ALGUMA PASTA --
+
+	cd ..
+
+-- LIMPAR TELA --
+
+	clear
+
+-- INICIAR REPOSITORIO --
+
+	git init
+
+-- STATUS DO REPOSITORIO --
+
+	git status
+
+-- DEPOIS DE SALVAR UM ARQUIVO NO REPOSITORIO, ADICIONA-LO COM O COMANDO: --
+
+	git add <nome&tipo>
+
+-- 
