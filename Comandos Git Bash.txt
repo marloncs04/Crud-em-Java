@@ -20,7 +20,7 @@
 
 	git status
 
--- DEPOIS DE SALVAR OU MODIFICAR UM ARQUIVO NO REPOSITORIO, ADICIONA-LO COM O COMANDO: --
+-- DEPOIS DE SALVAR OU MODIFICAR UM ARQUIVO NO STAGE AREA, ADICIONA-LO COM O COMANDO: --
 
 	git add <nome&tipo>
 	git add *.<tipo> // Adiciona todos no formato selecionado
