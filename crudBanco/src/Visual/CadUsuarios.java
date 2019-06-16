@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Visual;
 import DAL.Conectabd;
 import java.sql.*;
@@ -81,6 +77,13 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
         txtEndereco.setText("");
     }
     
+    public void editarUsuarios(){
+        
+        
+        
+        
+        
+    }
     
     //Metodo para cadastrar usuarios atraves da interface conectada com o banco
     
@@ -100,6 +103,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(null, "Cadastro realizado", "Cadastro de Usuarios", JOptionPane.INFORMATION_MESSAGE);
             
+            limparCampos();
             listarUsuarios();
             
         }
@@ -142,7 +146,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Cadastro de Usuarios");
+        setTitle("Usuarios");
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,7 +196,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Data de Nascimento:");
 
-        txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
 
         jLabel7.setText("Bolsista:");
 
