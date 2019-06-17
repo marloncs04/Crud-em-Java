@@ -33,7 +33,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
 
-        telacad.setBackground(new java.awt.Color(153, 153, 153));
+        telacad.setBackground(java.awt.Color.lightGray);
 
         javax.swing.GroupLayout telacadLayout = new javax.swing.GroupLayout(telacad);
         telacad.setLayout(telacadLayout);

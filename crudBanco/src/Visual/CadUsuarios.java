@@ -22,7 +22,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
 
     
     public void listarUsuarios(){
-        String select = "SELECT * FROM usuario;";
+        String select = "SELECT * FROM usuario order by idcadastro Asc;";
         try
         {
          pst = conecta.prepareStatement(select);
@@ -55,6 +55,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(null, error);
         }   
+        listarUsuarios();
     }
     
     public void mostraItens(){
@@ -77,10 +78,44 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
         txtEndereco.setText("");
     }
     
+    
+    public void deletarRegistro(){
+        try
+        {
+            String deleta = "Delete from usuario where idcadastro = ?";
+            pst = conecta.prepareStatement(deleta);
+            pst.setInt(1, Integer.parseInt(txtCodigo.getText()));
+            JOptionPane.showMessageDialog(null, "Registro deletado com sucesso!", "Remoção de cadastro", JOptionPane.INFORMATION_MESSAGE);
+            listarUsuarios();
+        }
+        catch(SQLException error){
+            JOptionPane.showMessageDialog(null, error);
+        }
+        
+        
+        
+    }
+    
+    
+    
     public void editarUsuarios(){
-        
-        
-        
+        String edita = "Update usuario set nome = ?, cpf = ?, endereco = ? where idcadastro = ? ;";
+        try
+        {
+            pst = conecta.prepareStatement(edita);
+            pst.setString(1, txtNome.getText());
+            pst.setString(2, txtCpf.getText());
+            pst.setString(3, txtEndereco.getText());
+            pst.setInt(4, Integer.parseInt(txtCodigo.getText()));
+            
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso!", "Atualização cadastral de usuários", JOptionPane.INFORMATION_MESSAGE);
+            listarUsuarios();
+            limparCampos();
+        }
+        catch(SQLException error){
+            JOptionPane.showMessageDialog(null, error);
+            }
         
         
     }
@@ -215,6 +250,11 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
         });
 
         jButton3.setText("Deletar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Limpar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -349,9 +389,9 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
@@ -398,8 +438,12 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblUsuariosMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        editarUsuarios();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        deletarRegistro();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
