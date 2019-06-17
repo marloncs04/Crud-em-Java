@@ -55,7 +55,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(null, error);
         }   
-        listarUsuarios();
+        //listarUsuarios();
     }
     
     public void mostraItens(){
@@ -82,34 +82,35 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
     public void deletarRegistro(){
         try
         {
-            String deleta = "Delete from usuario where idcadastro = ?";
+            String deleta = "DELETE FROM usuario WHERE idcadastro = ?";
             pst = conecta.prepareStatement(deleta);
             pst.setInt(1, Integer.parseInt(txtCodigo.getText()));
+            pst.execute();
+            
             JOptionPane.showMessageDialog(null, "Registro deletado com sucesso!", "Remoção de cadastro", JOptionPane.INFORMATION_MESSAGE);
             listarUsuarios();
+            limparCampos();
         }
         catch(SQLException error){
             JOptionPane.showMessageDialog(null, error);
         }
-        
-        
-        
+            
     }
     
     
     
     public void editarUsuarios(){
-        String edita = "Update usuario set nome = ?, cpf = ?, endereco = ? where idcadastro = ? ;";
+        String edita = "Update usuario set nome = ?, endereco = ? where idcadastro = ? ";
         try
         {
             pst = conecta.prepareStatement(edita);
             pst.setString(1, txtNome.getText());
-            pst.setString(2, txtCpf.getText());
-            pst.setString(3, txtEndereco.getText());
-            pst.setInt(4, Integer.parseInt(txtCodigo.getText()));
+            //pst.setString(2, txtCpf.getText());
+            pst.setString(2, txtEndereco.getText());
+            pst.setInt(3, Integer.parseInt(txtCodigo.getText()));
             
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso!", "Atualização cadastral de usuários", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso!", "Atualização cadastral", JOptionPane.INFORMATION_MESSAGE);
             listarUsuarios();
             limparCampos();
         }
@@ -136,7 +137,7 @@ public class CadUsuarios extends javax.swing.JInternalFrame {
             
             pst.execute();
             
-            JOptionPane.showMessageDialog(null, "Cadastro realizado", "Cadastro de Usuarios", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             
             limparCampos();
             listarUsuarios();

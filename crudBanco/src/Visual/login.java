@@ -20,6 +20,14 @@ public class login extends javax.swing.JFrame {
         con = Conectabd.conectabd();
     }
     
+    
+    public void limparCampo(){
+        
+        txtUsuario.setText("");
+        txtSenha.setText("");
+        
+    }
+    
     public void Logar(){
         String consultaLog = "SELECT * FROM login WHERE usuario = ? and senha = ?";
         try
@@ -41,6 +49,7 @@ public class login extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuario ou senha invalidos, tente novamente!");
+                limparCampo();
             }
             
             }
