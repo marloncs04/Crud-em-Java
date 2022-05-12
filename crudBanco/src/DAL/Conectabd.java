@@ -11,7 +11,7 @@ public class Conectabd {
         try{
             Class.forName("org.postgresql.Driver");
             String usuario = "postgres";
-            String senha = "98135282m";
+            String senha = "admin";
             String url = "jbdc:postgresql://localhost:5432/controletrans";
             Connection con = DriverManager.getConnection( url, usuario, senha);
             //JOptionPane.showMessageDialog(null, "uHUUUUUUUL com sucesso");
